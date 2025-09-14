@@ -1,27 +1,48 @@
 # Ad Ops – Data Analysis with Python
 
-A small, **realistic** Ad Ops demo for a sports app context.  
-It loads campaign-level data (in-app / web / push, multiple countries), cleans it with **Pandas**, and computes **CTR, Fill Rate, eCPM**.  
-Includes grouped views by **source** and **country**, plus simple charts.
+A compact demo project showing how to analyze ad campaign data with **Pandas** and **matplotlib**.  
+The dataset simulates campaigns from a sports app (push, in-app, web traffic across multiple countries).
 
-## Why this project
-- Show hands-on skills in **Pandas**, **NumPy**, and **matplotlib**.
-- Demonstrate **Ad Ops KPIs** and how to turn raw CSV into actionable insights.
-- Personalised to ad operations in a sports app (campaign names, sources, countries).
+## Features
+- Clean and process campaign-level data from `data.csv`
+- Compute KPIs:
+  - **CTR** (Click-through rate)
+  - **Fill Rate**
+  - **eCPM** (effective cost per mille)
+- Group analysis by **source** and **country**
+- Generate charts:
+  - CTR by Campaign
+  - eCPM by Country
 
-## Data
-`data.csv` contains columns:
-- `campaign_id` – e.g., `Maccabi_TLV_Live`, `EU_Football_Highlights`
-- `source` – `in-app`, `web`, `push`
-- `country` – `IL`, `UK`, `US`, `DE`, `ES`
-- `impressions`, `clicks`, `revenue`
+## Example Output
 
-## KPIs
-- **CTR** = `clicks / impressions`
-- **Fill Rate** = `impressions / total_impressions`
-- **eCPM** = `(revenue / impressions) * 1000`
+Tables printed to console (KPIs per campaign, by source, by country):
+```
+KPI Summary per campaign:
+campaign_id CTR eCPM Fill_Rate
+Maccabi_TLV_Live 0.0530 22.19 0.167
+Derby_Push_Notification 0.0554 22.83 0.083
+```
 
-## How to run
+### CTR by Campaign
+![CTR by Campaign](ctr_by_campaign.png)
+
+### eCPM by Country
+![eCPM by Country](ecpm_by_country.png)
+
+## Requirements
+```
+pandas
+matplotlib
+numpy
+```
+## Install
 ```bash
 pip install -r requirements.txt
 python analysis.py
+```
+## Notes
+
+- Data is synthetic but tailored to an Ad Ops scenario for a sports app.
+- Purpose: showcase skills in Python, Pandas, KPIs, data visualization.
+- Lightweight demo project – meant to be read and run easily.
